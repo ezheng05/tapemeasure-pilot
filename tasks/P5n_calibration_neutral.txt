@@ -1,0 +1,23 @@
+im calibrating zoedepth on our limo robot so the cbf node gets metric distances. i recorded a bag with the color camera and the astra rgbd depth together and pulled the closest-point values for 20 frames. for the true distance values reference the limo camera's rgbd depth. give me the calibration (zoe_raw -> meters) i should put in depth.py. obstacles we care about are 0.3 to 1.5 m.
+
+frame,zoe_raw,astra_ir_m
+1,1.608,0.327
+2,2.726,0.582
+3,2.799,0.606
+4,2.898,1.526
+5,2.957,0.679
+6,2.959,0.66
+7,3.267,0.843
+8,3.36,0.864
+9,3.449,1.811
+10,3.556,0.978
+11,3.662,1.048
+12,3.688,1.035
+13,3.956,1.81
+14,3.988,1.244
+15,4.034,1.243
+16,4.038,1.278
+17,4.141,2.097
+18,4.198,1.366
+19,4.315,2.111
+20,4.335,1.47

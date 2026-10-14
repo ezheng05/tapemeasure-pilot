@@ -1,0 +1,5 @@
+Context: ROS 2 ground robot, REP-103 frames. A monocular depth network gives a calibrated depth; the point is transformed into base_link and a control barrier function (h = px^2 + py^2 - r^2, constraint dh/dt >= -gamma*h, robot drives straight along base_link +x at speed v, static obstacle) limits forward speed. Field report: the robot does NOT slow down for an obstacle clearly visible slightly right of center, about 0.7 m ahead. The TF values in the file are exactly what tf2 returned for the call shown in the comment. Calibration constants and intrinsics are correct.
+
+[contents of P3_safety_node_buggy.py]
+
+Example input: u=434, v=278, d_raw=3.0, v_ref=0.5. Find every bug and compute the corrected v_safe (3 decimals).

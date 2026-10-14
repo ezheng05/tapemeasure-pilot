@@ -1,0 +1,18 @@
+A differential-drive ground robot (ROS 2, REP-103/REP-105 conventions) has a monocular RGB camera and a learned depth network.
+
+Frames and transforms:
+- odom -> base_link: robot at x = 1.0 m, y = 2.0 m, yaw = 120 degrees (z = 0, no roll/pitch).
+- base_link -> camera_link: translation (0.10, 0, 0.15) m, rpy = (0, 0.1745, 0) rad (URDF convention). camera_link is a standard REP-103 body frame (x forward, y left, z up).
+- camera_link -> camera_optical_frame: translation 0, rpy = (-pi/2, 0, -pi/2) (the standard optical frame: z forward, x right, y down).
+
+Camera intrinsics (pinhole, no distortion): fx = fy = 380, cx = 320, cy = 240.
+
+The depth network outputs a raw value d_raw = 3.0 at pixel (u, v) = (434, 278). The network is calibrated: metric depth along the optical axis z = 0.1196*d_raw^2 - 0.2886*d_raw + 0.4771 (meters).
+
+Safety filter: the robot drives forward only with commanded linear speed v (along base_link x), no turning. Treat the detected point as a static obstacle. Use the control barrier function h = px^2 + py^2 - r^2, where (px, py) is the obstacle position in base_link (planar, ignore z) and r = 0.4 m. Enforce dh/dt >= -gamma * h with gamma = 0.8. The reference speed is v_ref = 0.5 m/s. The filtered speed is the v closest to v_ref satisfying the constraint.
+
+Report:
+(a) the obstacle position in base_link (x, y, z),
+(b) the obstacle position in odom (x, y, z),
+(c) the filtered speed v_safe.
+Round to 3 decimals.

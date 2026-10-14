@@ -1,0 +1,19 @@
+task,model,mode,correct,notes
+P1,Claude Fable 5.1,no tools,yes,
+P1,Claude Opus 5.5,no tools,yes,
+P1,Claude Sonnet 5.5,no tools,yes,
+P1,Claude Haiku 5.5,no tools,yes,
+P1,Claude Fable 5.1,code,yes,
+P2,Claude Fable 5.1,no tools,yes,
+P2,Claude Opus 5.5,no tools,yes,
+P2,Claude Sonnet 5.5,no tools,yes,
+P2,Claude Haiku 5.5,no tools,excluded,returned no answer
+P2,Claude Fable 5.1,code,yes,
+P3,Claude Fable 5.1,no tools,yes,found both bugs; v_safe 0.245
+P3,Claude Opus 5.5,no tools,yes,found both bugs; v_safe 0.245
+P3,Claude Sonnet 5.5,no tools,yes,found both bugs; v_safe 0.245
+P3,Claude Fable 5.1,code,yes,found both bugs; v_safe 0.245
+P3,Claude Sonnet 5.5,code,yes,found both bugs; v_safe 0.245
+P6,Claude Fable 5.1,no tools,yes,blocked the live test on the 0.1 Hz link
+P6,Claude Opus 5.5,no tools,yes,blocked the live test on the 0.1 Hz link
+P6,Claude Sonnet 5.5,no tools,yes,blocked the live test on the 0.1 Hz link

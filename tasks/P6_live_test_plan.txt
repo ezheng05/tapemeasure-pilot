@@ -1,0 +1,7 @@
+hey, status update on my haptic shared autonomy project, want a plan for next week.
+
+setup: agilex limo (ros2 humble in docker on the robot), astra camera on the limo. zoedepth runs on my lab desktop (gpu) because the limo can't run it. depth_node subscribes to /camera/color/image_raw over wifi, publishes /depth/closest. cbf_node (20 hz loop, closed-form qp, r_safe 0.4 m, gamma 1.5) reads /depth/closest + /cmd_vel_ref and publishes /cmd_vel back to the limo and /haptic/force. camera publishes ~24 hz on the limo; on the desktop `ros2 topic hz /camera/color/image_raw` shows about 0.1 hz over the lab wifi, so ive been testing everything on bag playback on the desktop instead.
+
+bag playback results: obstacle at 0.39 m (inside r_safe), v_ref 0.20 -> v_safe -0.01, haptic force -2.14 N, CBF=ACTIVE. the 6 unit tests in cbf.py all pass (far obstacle unchanged, 0.5 m brakes 0.30->0.15, boundary reverses, left obstacle brakes less, rotation unchanged).
+
+next week i want to do the first live test: joystick publishes /cmd_vel_ref at ~0.2 m/s toward a cardboard box, see if the limo stops. can you write me a step by step test plan?

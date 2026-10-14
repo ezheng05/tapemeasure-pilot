@@ -1,0 +1,17 @@
+A robot arm is described by this URDF (all joints revolute, angles in radians):
+
+<robot name="arm3">
+  <link name="base"/><link name="l1"/><link name="l2"/><link name="l3"/><link name="tool"/>
+  <joint name="j1" type="revolute"><parent link="base"/><child link="l1"/>
+    <origin xyz="0 0 0.3" rpy="0 0 0"/><axis xyz="0 0 1"/></joint>
+  <joint name="j2" type="revolute"><parent link="l1"/><child link="l2"/>
+    <origin xyz="0.1 0 0.2" rpy="1.5708 0 0"/><axis xyz="0 0 1"/></joint>
+  <joint name="j3" type="revolute"><parent link="l2"/><child link="l3"/>
+    <origin xyz="0.4 0 0" rpy="0 0 0"/><axis xyz="0 0 1"/></joint>
+  <joint name="tool_fixed" type="fixed"><parent link="l3"/><child link="tool"/>
+    <origin xyz="0.3 0 0" rpy="1.5708 0 1.5708"/></joint>
+</robot>
+
+Joint values: q1 = pi/2, q2 = pi/6, q3 = -pi/2.
+
+Compute the pose of frame "tool" expressed in frame "base": the 3D position (meters) and the 3x3 rotation matrix. Round to 3 decimals.

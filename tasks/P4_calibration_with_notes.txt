@@ -1,0 +1,5 @@
+I'm calibrating a monocular depth network (ZoeDepth) on a small ground robot so a control-barrier-function safety filter can use its output. The robot also has an IR depth sensor, which I'm using as the reference. Below are 20 paired frames from a recorded ros2 bag (raw network output at the obstacle's closest point, IR depth in meters at the same pixel, and my lab-notebook note about what the obstacle was). The robot operates with obstacles between roughly 0.3 and 1.5 m.
+
+[contents of data/calib_frames_with_notes.csv]
+
+Give me the calibration formula (raw -> meters) I should deploy, the predicted metric depth for raw = 2.0 and raw = 3.5, and the worst-case calibration error over raw in [1.6, 4.3] that my safety radius needs to absorb. Briefly justify your choices.

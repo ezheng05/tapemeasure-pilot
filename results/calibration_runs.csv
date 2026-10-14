@@ -1,0 +1,27 @@
+run,task,vendor,model,form,params,clip_lo,clip_hi,out_lo,out_hi,dropped_frames,stated_reason_for_transparent_frames
+p4-sonnet,P4,Anthropic,Claude Sonnet 5.5,quad,0.11476;-0.25974;0.44294,,,,,4 9 13 17 19,transparent targets (from notes)
+p4-opus,P4,Anthropic,Claude Opus 5.5,quad,0.11476;-0.25974;0.44294,,,,,4 9 13 17 19,transparent targets (from notes)
+p4-fable,P4,Anthropic,Claude Fable 5.1,quad,0.1148;-0.2597;0.4429,1.6,4.3,,,4 9 13 17 19,transparent targets (from notes)
+p5-sonnet-1,P5,Anthropic,Claude Sonnet 5.5,linear,0.4505;-0.5886,,,,,4 9 13 17 19,pixel mismatch or depth holes
+p5-opus-1,P5,Anthropic,Claude Opus 5.5,linear,0.548;-0.947,,,0,,1 4 9 13 17 19,depth holes / background; frame 1 below Astra min range
+p5-fable-1,P5,Anthropic,Claude Fable 5.1,linear,0.548;-0.948,,,,,1 4 9 13 17 19,pixel mismatch or depth hole
+p5-sonnet-2,P5,Anthropic,Claude Sonnet 5.5,linear,0.4505;-0.5886,,,,,4 9 13 17 19,different surface or dropout
+p5-sonnet-3,P5,Anthropic,Claude Sonnet 5.5,linear,0.548;-0.948,,,0.05,,1 4 9 13 17 19,different objects or bad pixels; frame 1 below Astra min range
+p5-opus-2,P5,Anthropic,Claude Opus 5.5,linear,0.548;-0.947,,,0,,1 4 9 13 17 19,depth hole or background; frame 1 below Astra min range
+p5-opus-3,P5,Anthropic,Claude Opus 5.5,linear,0.548;-0.947,,,0,,1 4 9 13 17 19,depth holes; frame 1 below Astra min range
+p5-fable-2,P5,Anthropic,Claude Fable 5.1,linear,0.548;-0.948,,,0.05,,1 4 9 13 17 19,IR dropout or hole; frame 1 at Astra min range
+p5-fable-3,P5,Anthropic,Claude Fable 5.1,linear,0.548;-0.948,,,,,1 4 9 13 17 19,pixel mismatch; frame 1 below Astra min range
+p5n-sonnet-1,P5n,Anthropic,Claude Sonnet 5.5,quad,0.11476;-0.25974;0.44294,1.608,4.37,,,4 9 13 17 19,IR dropouts or different surface
+p5n-sonnet-2,P5n,Anthropic,Claude Sonnet 5.5,quad,0.114759;-0.259739;0.442943,1.6,4.4,,,4 9 13 17 19,different surface or IR artifact
+p5n-opus-1,P5n,Anthropic,Claude Opus 5.5,kz2,0.0776,,,,,1 4 9 13 17 19,dark/shiny/thin surface or sync; frame 1 below Astra min range
+p5n-opus-2,P5n,Anthropic,Claude Opus 5.5,exp,0.1279;0.5668,,,,,4 9 13 17 19,different surface or depth holes
+p5n-fable-1,P5n,Anthropic,Claude Fable 5.1,quad,0.11476;-0.25974;0.44294,,,0.25,2.0,4 9 13 17 19,depth holes or RGB-depth misalignment
+p5n-fable-2,P5n,Anthropic,Claude Fable 5.1,exp,0.1294;0.5638,1.5,4.4,,,4 9 13 17 19,dropout on edges or dark/reflective surfaces
+p5-gpt-1,P5,OpenAI,gpt-6-t-mini (ChatGPT free; Think),linear,0.450457;-0.588609,,,,,4 9 13 17 19,thresholded reference at 1.5 m
+p5-gpt-2,P5,OpenAI,gpt-6-t-mini (ChatGPT free; Think),linear,0.450457;-0.588609,,,,,4 9 13 17 19,thresholded reference at 1.5 m
+p5n-gpt-1,P5n,OpenAI,gpt-6-t-mini (ChatGPT free; Think),linear,0.45045683;-0.58860856,,,,,4 9 13 17 19,thresholded reference at 1.5 m
+p5n-gpt-2,P5n,OpenAI,gpt-6-t-mini (ChatGPT free; Think),linear,0.450457;-0.588609,,,,,4 9 13 17 19,thresholded reference at 1.5 m
+p5-gemini-1,P5,Google,Gemini Auto (free; thinking High),linear,0.450457;-0.588609,,,,,4 9 13 17 19,thresholded reference at 1.5 m; Astra dropouts/multipath
+p5-gemini-2,P5,Google,Gemini Auto (free; thinking High),linear,0.4505;-0.5886,,,,,4 9 13 17 19,thresholded reference at 1.5 m; blamed ZoeDepth compression
+p5n-gemini-1,P5n,Google,Gemini Auto (free; thinking High),quad,0.1148;-0.2597;0.4429,,,0.2,3.0,4 9 13 17 19,thresholded reference; multipath or background bleed
+p5n-gemini-2,P5n,Google,Gemini Auto (free; thinking High),linear,0.4505;-0.5886,,,0,,4 9 13 17 19,thresholded reference at 1.5 m; background objects
